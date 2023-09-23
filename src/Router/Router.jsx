@@ -3,6 +3,8 @@ import MainLayout from "../Layout/MainLayout";
 import Home from "../Pages/Home/Home";
 import Fevorites from "../Pages/Fevorites/Fevorites";
 import Login from "../Pages/Login/Login";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Phone from "../Pages/Phone/Phone";
 
 
 const myCustomRouter = createBrowserRouter([
@@ -11,6 +13,7 @@ const myCustomRouter = createBrowserRouter([
 
         path:"/",
         element:<MainLayout></MainLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children:[
             
         {
@@ -28,6 +31,11 @@ const myCustomRouter = createBrowserRouter([
 
             path:"/login",
             element:<Login></Login>,
+
+        },{
+
+            path:"/phones/:id",
+            element:<Phone></Phone>
 
         }
     
