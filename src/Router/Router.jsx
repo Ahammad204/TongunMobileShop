@@ -16,7 +16,8 @@ const myCustomRouter = createBrowserRouter([
         {
 
             path:"/",
-            element:<Home></Home>
+            element:<Home></Home>,
+            loader:()=> fetch('/phones.json')
 
         },{
 
