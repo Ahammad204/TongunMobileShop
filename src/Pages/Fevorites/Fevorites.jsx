@@ -26,10 +26,19 @@ const Fevorites = () => {
 
     },[])
 
+    const handleRemove = () => {
+
+        localStorage.clear()
+        setFavourites([])
+        setNoFound('No Data Found')
+
+    }
 
     return (
         <div>
             {noFound ? <p className="h-[80vh] flex justify-center items-center">{noFound}</p>:<div>
+
+                {favourites.length > 0 && <button onClick={handleRemove} className="px-5 bg-green-200 mx-auto block">Delete All Favourites</button>}
                 
                 <div className="grid grid-cols-2 gap-5">
 
