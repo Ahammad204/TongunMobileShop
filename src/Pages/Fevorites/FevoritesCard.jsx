@@ -1,48 +1,11 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unknown-property */
-import swal from "sweetalert";
 
 
-const PhoneCard = ({ phone }) => {
+const FevoritesCard = ({phone}) => {
 
     const { id, phone_name, brand_name, rating, price, image } = phone || {}
-
-    const handleAddToFavorite = () => {
-
-        const addedFavoritesArray = [];
-
-        const favoriteItems = JSON.parse(localStorage.getItem('favorites'));
-
-        if (!favoriteItems) {
-
-            addedFavoritesArray.push(phone)
-            localStorage.setItem('favorites', JSON.stringify(addedFavoritesArray))
-            swal("Good job!", "You added the product in favorite", "success");
-        }
-        else {
-
-            const isExist = favoriteItems.find(phone => phone.id === id)
-
-            if (!isExist) {
-
-                addedFavoritesArray.push(...favoriteItems, phone)
-                localStorage.setItem('favorites', JSON.stringify(addedFavoritesArray))
-                swal("Good job!", "You added the product in favorite", "success");
-
-            }
-            else{
-
-                swal("Oops!", "Looks Like You Already Added", "error");
-
-            }
-
-
-        }
-
-
-    }
-
 
     return (
         <div className="flex justify-center items-center h-[80vh]">
@@ -63,7 +26,7 @@ const PhoneCard = ({ phone }) => {
 
                     <a className="inline-block" href="#">
                         <button
-                            onClick={handleAddToFavorite}
+                            
                             className="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                             type="button"
                         >
@@ -91,4 +54,4 @@ const PhoneCard = ({ phone }) => {
     );
 };
 
-export default PhoneCard;
+export default FevoritesCard;
