@@ -1,3 +1,4 @@
+import swal from "sweetalert";
 
 
 const PhoneCard = ({ phone }) => {
@@ -10,17 +11,30 @@ const PhoneCard = ({ phone }) => {
 
         const favoriteItems = JSON.parse(localStorage.getItem('favorites'));
 
-        if (!favoriteItems){
+        if (!favoriteItems) {
 
             addedFavoritesArray.push(phone)
-            localStorage.setItem('favorites',JSON.stringify(addedFavoritesArray))
-            alert('Product Added')
+            localStorage.setItem('favorites', JSON.stringify(addedFavoritesArray))
+            swal("Good job!", "You added the product in favorite", "success");
         }
-        else{
+        else {
 
-            addedFavoritesArray.push(...favoriteItems,phone)
-            localStorage.setItem('favorites',JSON.stringify(addedFavoritesArray))
-            alert('Product Added')
+            const isExist = favoriteItems.find(phone => phone.id === id)
+
+            if (!isExist) {
+
+                addedFavoritesArray.push(...favoriteItems, phone)
+                localStorage.setItem('favorites', JSON.stringify(addedFavoritesArray))
+                swal("Good job!", "You added the product in favorite", "success");
+
+            }
+            else{
+
+                swal("Oops!", "Looks Like You Already Added", "error");
+
+            }
+
+
         }
 
 
@@ -50,7 +64,7 @@ const PhoneCard = ({ phone }) => {
                             className="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                             type="button"
                         >
-                           Add to Fevorites 
+                            Add to Fevorites
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
