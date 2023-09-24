@@ -25,7 +25,7 @@ const FevoritesCard = ({phone}) => {
                     </h4>
 
                     <a className="inline-block" href="#">
-                        <button
+                        {/* <button
                             
                             className="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                             type="button"
@@ -46,7 +46,8 @@ const FevoritesCard = ({phone}) => {
                                     d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
                                 ></path>
                             </svg>
-                        </button>
+                        </button> */}
+                        <p className="text-xl font-semibold">Price: ${price}</p>
                     </a>
                 </div>
             </div>
