@@ -7,6 +7,7 @@ const Fevorites = () => {
 
     const [favourites,setFavourites] = useState([]);
     const [noFound,setNoFound] = useState(false)
+    const [isShow,setIsShow] = useState(false)
 
     useEffect(()=>{
 
@@ -44,11 +45,15 @@ const Fevorites = () => {
 
                 {
 
-                    favourites.map(phone => <FevoritesCard key={phone.id} phone={phone}></FevoritesCard >)
+                    isShow ?  favourites.map(phone => <FevoritesCard key={phone.id} phone={phone}></FevoritesCard >):
+                    favourites.slice(0,4).map(phone => <FevoritesCard key={phone.id} phone={phone}></FevoritesCard >)
+
+                   
 
                 }
 
                 </div>
+                {favourites.length > 4 && <button onClick={()=> setIsShow(!isShow)}  className="px-5 bg-green-200 mx-auto block mt-3">{isShow ? "Show Less": "Show More"}</button>}
 
                 </div>}
         </div>
